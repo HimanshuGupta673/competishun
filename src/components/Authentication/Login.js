@@ -26,33 +26,34 @@ function Login() {
     //     });
     // }
 
-    const LoginUser = async (e) => {
+    const loginUser = (e) => {
         e.preventDefault();
-
-        if (Login.email === '' || !Login.email.includes("@")) {
-            toast.error("Enter a valid email");
-        } else if (Login.password === '') {
-            toast.error("Enter your password");
-        } else if (Login.password.length < 8) {
-            toast.error("Password must contain at least 8 characters");
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+      
+        const user = users.find((user) => user.email === login.email);
+      
+        if (!user) {
+          toast.error("User does not exist");
+        } else if (user.password !== login.password) {
+          toast.error("Incorrect email or password");
         } else {
-            setIsLoading(true);
-            const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-            const userExists = existingUsers.some((user) => user.email === Login.email);
-
-            if (userExists) {
-                toast.error("User with this email already exists");
-                setIsLoading(false);
-            } else {
-
-                existingUsers.push(Login);
-                localStorage.setItem("users", JSON.stringify(existingUsers));
-                toast.succes("Sign Up Successfull");
-                setIsLoading(false);
-                setLogin(LoginInitialValues);
-            }
+          setIsLoading(true);
+      
+          setTimeout(() => {
+            setIsLoading(false);
+            setUser(login.email);
+            localStorage.setItem('login', login.email);
+            setLogin(loginInitialValues);
+            toast.success('Login Successful!', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              theme: "colored",
+            });
+          }, 1000); 
         }
-    };
+      };      
     return (
         <>
             <ToastContainer
