@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 function Header() {
   const navigate = useNavigate()
-  var login = localStorage.getItem('login');
+  var login = JSON.parse(localStorage.getItem('login'));
   // var userEmail = user.email;
   const handleLogout = () => {
     localStorage.removeItem('login')
@@ -26,7 +26,7 @@ function Header() {
         theme="colored"
       />
       <div className='head'>
-        <div className='headName'>Himanshu</div>
+        <div className='headName'>{login.name}</div>
         <div>
           <button onClick={() => handleLogout()} className='headButton'>LogOut</button>
         </div>

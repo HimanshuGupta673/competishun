@@ -14,23 +14,30 @@ import Tabs from './Tabs';
 export const Todos = () => {
 
     const dispatch = useDispatch();
-    //  we need to pull data from api to redux
-    const todos = useSelector(state => state.todos);   //by this we have pulled out the complete data from the redux as in redux ke andar state hai and state ke andar todos hai
+    const todos = useSelector(state => state.todos);  
     const currentTab = useSelector(state => state.currentTab);
 
     useEffect(() => {
         dispatch(getAllTodos());
     }, [])
-
+    var login = JSON.parse(localStorage.getItem('login'));
+    var loginEmail = login.email
     const getTodos = () => {
-        if (currentTab === ALL_TODOS) {
-            return todos;
-        } else if (currentTab === ACTIVE_TODOS) {
-            return todos.filter(todo => !todo.done)
-        } else if (currentTab === DONE_TODOS) {
-            return todos.filter(todo => todo.done)
+        if (!loginEmail) {
+            // User is not logged in, so no todos to show
+            return [];
         }
+    
+        if (currentTab === ALL_TODOS) {
+            return todos.filter(todo => todo.email === loginEmail);
+        } else if (currentTab === ACTIVE_TODOS) {
+            return todos.filter(todo => todo.email === loginEmail && !todo.done);
+        } else if (currentTab === DONE_TODOS) {
+            return todos.filter(todo => todo.email === loginEmail && todo.done);
+        }
+        return [];
     }
+    
 
     const removeDoneTodos = () => {
         todos.forEach(({ done, _id }) => {
@@ -42,7 +49,7 @@ export const Todos = () => {
 
     return (
         <article>
-            <div>
+            <div style={{margin:'20px 0px'}}>
                 <Tabs currentTab={currentTab} />
 
                 {
@@ -55,7 +62,7 @@ export const Todos = () => {
                 }
             </div>
 
-            <ul>
+            <ul style={{padding:'0px'}}>
                 {
                     getTodos().map(todo => (
                         <Todo 

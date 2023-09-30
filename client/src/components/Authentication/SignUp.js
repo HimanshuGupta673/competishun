@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 function SignUp() {
 
     const signupInitialValues = {
+        name:'',
         email: '',
         password: ''
     };
@@ -32,6 +33,8 @@ function SignUp() {
       
         if (signup.email === '' || !signup.email.includes("@")) {
           toast.error("Enter a valid email");
+        }else if(signup.name === ''){
+            toast.error("Enter a valid Username")
         } else if (signup.password === '') {
           toast.error("Enter your password");
         } else if (signup.password.length < 8) {
@@ -48,7 +51,7 @@ function SignUp() {
 
             existingUsers.push(signup);
             localStorage.setItem("users", JSON.stringify(existingUsers));
-            toast.succes("Sign Up Successfull");
+            toast.success("Sign Up Successfull");
             setIsLoading(false);
             setSignup(signupInitialValues);
           }
@@ -83,9 +86,22 @@ function SignUp() {
                 color:'green'
             }} ><Loader /></div>}
             <div className="container">
-                <div className="form">
+                <div className="form2">
                     <h1 className="text-xl font-bold">Create a new account</h1>
                     <form className="space-y-4" action="#">
+                        <div>
+                            <label htmlFor="name" className="label">UserName</label>
+                            <input
+                                type="name"
+                                name="name"
+                                value={signup.name}
+                                onChange={(e) => onInputChange(e)}
+                                id="name"
+                                autoComplete="name"
+                                className="input"
+                                placeholder="UserName"
+                            />
+                        </div>
                         <div>
                             <label htmlFor="email" className="label">Your email</label>
                             <input

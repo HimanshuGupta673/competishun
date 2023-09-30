@@ -44,8 +44,12 @@ function Login() {
             setIsLoading(true);
             setTimeout(() => {
                 setIsLoading(false);
-                // setUser(login.email);
-                localStorage.setItem('login', login.email);
+                
+                const loginUser = {
+                    name: user.name, 
+                    email: user.email, 
+                };
+                localStorage.setItem('login', JSON.stringify(loginUser));
                 setLogin(LoginInitialValues);
                 toast.success('Login Successful!', {
                     position: "top-center",
@@ -56,7 +60,7 @@ function Login() {
                 });
                 navigate('/')
             }, 1000);
-           
+
         }
     };
     return (
@@ -88,7 +92,7 @@ function Login() {
                 color: 'green'
             }} ><Loader /></div>}
             <div className="container">
-                <div className="form">
+                <div className="form2">
                     <h1 className="text-xl font-bold">Sign in to your account</h1>
                     <form className="space-y-4" action="#">
                         <div>

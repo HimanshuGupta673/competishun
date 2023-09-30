@@ -4,15 +4,16 @@ import { ADDNEW_TODO, GETALL_TODO, TOGGLE_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE
 
 const API_URL = 'http://localhost:8000';
 
-export const addNewTodo = (data) => async (dispatch) => {
+export const addNewTodo = (newTodo) => async (dispatch) => {
     try {
-        const res = await axios.post(`${API_URL}/todos`, { data });
-
-        dispatch({ type: ADDNEW_TODO , payload: res.data });  //dispatch karne se res jaayege reducer ke andar and reducer mein bhi do hote hai state and actions..so yha se dispatch karne par reducer ke action mein jata hai
+      const res = await axios.post(`${API_URL}/todos`, newTodo);
+  
+      dispatch({ type: ADDNEW_TODO, payload: res.data });
     } catch (error) {
-        console.log('Error while calling addNewTodo API ', error.message);
+      console.log('Error while calling addNewTodo API', error.message);
     }
-}
+  };
+  
 export const getAllTodos = () => async (dispatch) => {
     try {
         const res = await axios.get(`${API_URL}/todos`);
