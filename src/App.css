@@ -1,3 +1,4 @@
+
 .container {
   display: flex;
   /* flex-direction: column; */
@@ -52,4 +53,89 @@
 
 .submit-button:hover {
   background: #005bbd; /* Adjust the color as needed */
+}
+.homescreen {
+  width: 50%;
+  margin: 0 auto;
+}
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 100px;
+  color: #2c3e50;
+  font-weight: 200;
+}
+.input {
+  font-size: 20px;
+  color: #2c3e50;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0%;
+  background-color: white;
+  border-bottom: 1px solid #2c3e50;
+  padding: 5px;
+}
+
+.task {
+  background-color: #34495e;
+  padding: 15px;
+  margin: 5px;
+  overflow-x: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task span {
+  color: #FFFFFF;
+}
+
+.icon {
+  font-size: 20px;
+  float: right;
+  margin-right: 20px;
+}
+
+article {
+  display: grid;
+}
+
+.edit-todo {
+  width: 85%;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid darkcyan;
+}
+.headName{
+  font-size: 25px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  /* font-style: italic; */
+  font-weight: 400;
+}
+.headButton{
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+  background-color: white;
+}
+.headButton:hover{
+  border-bottom: 2px solid skyblue;
 }

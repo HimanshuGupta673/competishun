@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../Loader/Loader';
+import { Link } from 'react-router-dom';
 function SignUp() {
 
     const signupInitialValues = {
@@ -128,9 +129,9 @@ function SignUp() {
                         </button>
                         <p className="text-small">
                             Already have an account?{' '}
-                            <a to="/login" className="link">
+                            <Link to="/" className="link">
                                 Sign in
-                            </a>
+                            </Link>
                         </p>
                     </form>
                 </div>
