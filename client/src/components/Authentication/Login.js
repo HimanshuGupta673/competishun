@@ -42,7 +42,6 @@ function Login() {
             toast.error("Incorrect email or password");
         } else {
             setIsLoading(true);
-
             setTimeout(() => {
                 setIsLoading(false);
                 // setUser(login.email);
@@ -55,8 +54,9 @@ function Login() {
                     closeOnClick: true,
                     theme: "colored",
                 });
-            }, 2000);
-            navigate('/')
+                navigate('/')
+            }, 1000);
+           
         }
     };
     return (
