@@ -16,7 +16,7 @@
   padding: 6px;
   margin: auto;
   height: 100vh;
-  background-color: #4a4aff;
+  background: linear-gradient(180deg, #3481ee, #73abff);
 }
 
 .form2 {

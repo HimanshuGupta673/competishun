@@ -21,13 +21,11 @@ export const Todos = () => {
         dispatch(getAllTodos());
     }, [])
     var login = JSON.parse(localStorage.getItem('login'));
-    var loginEmail = login.email
+    var loginEmail = login ? login.email : null;
     const getTodos = () => {
         if (!loginEmail) {
-            // User is not logged in, so no todos to show
             return [];
         }
-    
         if (currentTab === ALL_TODOS) {
             return todos.filter(todo => todo.email === loginEmail);
         } else if (currentTab === ACTIVE_TODOS) {

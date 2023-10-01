@@ -21,18 +21,10 @@ function Login() {
     }
 
     const navigate = useNavigate()
-    // const generateError = (error) => {
-    //     toast.error(error, {
-    //         position: "top-center",
-    //     });
-    // }
 
     const loginUser = (e) => {
         e.preventDefault();
         const users = JSON.parse(localStorage.getItem("users")) || [];
-        console.log("Users in local storage:", users);
-        console.log("Login email:", login.email);
-        console.log("Login password:", login.password);
 
         const user = users.find((user) => user.email === login.email);
 

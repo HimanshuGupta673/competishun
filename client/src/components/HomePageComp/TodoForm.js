@@ -13,13 +13,12 @@ const TodoForm = () => {
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
-        console.log("form submit", login.email)
         try {
             const newTodo = {
                 data: text,
                 dueDate: dueDate,
                 priority: priority,
-                email: login.email,
+                email: login ? login.email : null,
             };
             await dispatch(addNewTodo(newTodo));
             toast.success('New Todo added Successfully')

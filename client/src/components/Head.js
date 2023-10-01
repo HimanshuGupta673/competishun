@@ -25,7 +25,7 @@ function Header() {
         theme="colored"
       />
       <div className='head'>
-        <div className='headName'>{login.name}</div>
+        <div className='headName'>{login?login.name:"User"}</div>
         <div>
           <button onClick={() => handleLogout()} className='headButton'>LogOut</button>
         </div>
