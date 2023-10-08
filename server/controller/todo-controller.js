@@ -21,15 +21,21 @@ export const addTodo = async (request, response) => {
   };
   
 
-export const getAllTodos = async (request, response) => {
+  export const getAllTodos = async (request, response) => {
     try {
-        const todos = await Todo.find({}).sort({ 'priority':-1,'dueDate': 1 });
+        const sortOrders = {
+            "high": -1, 
+            "medium": 0,   
+            "low": 1       
+        };
+        const todos = await Todo.find({}).sort({ 'priority': (priority) => sortOrders[priority] , 'dueDate': 1});
 
         return response.status(200).json(todos);
     } catch (error) {
         return response.status(500).json(error.message);
     }
 }
+
 
 export const toggleTodoDone = async (request, response) => {
     try {
