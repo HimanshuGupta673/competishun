@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../Loader/Loader';
@@ -20,13 +18,6 @@ function SignUp() {
     const onInputChange = (e) => {
         setSignup({ ...signup, [e.target.name]: e.target.value })
     }
-
-    // const navigate = useNavigate()
-    // const generateError = (error) => {
-    //     toast.error(error, {
-    //         position: "top-center",
-    //     });
-    // }
 
     const signUpUser = async (e) => {
         e.preventDefault();
