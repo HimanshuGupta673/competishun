@@ -45,10 +45,11 @@ const Todo = ({ todo }) => {
                 style={{
                     textDecoration: todo.done ? 'line-through' : '',
                     color: todo.done && !editing ? '#bdc3c7' :
-                        todo.priority === 'high' ? '#f76880' :
-                            todo.priority === 'medium' ? '#eef78b' :
                                 '#34495e',
-                    backgroundColor: todo.done && !editing ? '#20B2AA' : '#34495e'
+                    backgroundColor: todo.done && !editing ? '#bdc3c7' :
+                    todo.priority === 'high' ? '#f76880' :
+                        todo.priority === 'medium' ? '#eef78b' :
+                            '#34495e',
 
                 }}
                 data-testid="todo-test"
