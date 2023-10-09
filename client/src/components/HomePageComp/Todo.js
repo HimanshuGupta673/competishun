@@ -47,7 +47,7 @@ const Todo = ({ todo }) => {
                     color: todo.done && !editing ? '#bdc3c7' :'#000000',
                     backgroundColor: todo.done && !editing ? '#bdc3c7' :
                     todo.priority === 'high' ? '#f7a3a3' :
-                        todo.priority === 'medium' ? '#c4f0bb' :
+                        todo.priority === 'medium' ? '#e66bff' :
                             '#c4f0bb',
 
                 }}
