@@ -44,12 +44,11 @@ const Todo = ({ todo }) => {
                 onClick={() => dispatch(toggleTodo(todo._id))}
                 style={{
                     textDecoration: todo.done ? 'line-through' : '',
-                    color: todo.done && !editing ? '#bdc3c7' :
-                                '#000000',
+                    color: todo.done && !editing ? '#bdc3c7' :'#000000',
                     backgroundColor: todo.done && !editing ? '#bdc3c7' :
                     todo.priority === 'high' ? '#f7a3a3' :
-                        todo.priority === 'medium' ? '#f0f7a3' :
-                            '#f7a3a3',
+                        todo.priority === 'medium' ? '#c4f0bb' :
+                            '#c4f0bb',
 
                 }}
                 data-testid="todo-test"
