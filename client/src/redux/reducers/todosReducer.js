@@ -7,7 +7,7 @@ export const todosReducers = (state = [], action) => {
         case actionTypes.ADDNEW_TODO:
             return [action.payload, ...state]
         case actionTypes.GETALL_TODO:
-            return action.payload  //yha se data redux mein save ho jata hai
+            return action.payload  
         case actionTypes.TOGGLE_TODO:
             return state.map(todo => (
                 todo._id === action.payload._id ? { ...todo, done: !todo.done } : todo
